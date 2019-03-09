@@ -1,0 +1,12 @@
+{
+    "extends": "rallycoding", 
+    "rules": {
+      "global-require": 0,
+      "max-len": "off",
+      "eqeqeq": "off"
+     }
+  }
+  
+
+  
+  
