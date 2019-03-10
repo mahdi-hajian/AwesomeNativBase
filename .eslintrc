@@ -3,7 +3,8 @@
     "rules": {
       "global-require": 0,
       "max-len": "off",
-      "eqeqeq": "off"
+      "eqeqeq": "off",
+      "no-underscore-dangle": "off"
      }
   }
   

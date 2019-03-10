@@ -8,42 +8,49 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\nCmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import { Container, Drawer, Left, Header, Button, Icon, Body, Title, Right } from 'native-base';
+import SideBar from './src/components/SideBar';
+import { FooterComponent } from './src/components/footer';
+import { ContentComponent } from './src/components/Content';
 
 export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
-  }
+    CloseDrawer() {
+        this
+            .drawer
+            ._root
+            .close();
+    }
+    OpenDrawer() {
+      this
+          .drawer
+          ._root
+          .open();
+    }
+    render() {
+        return (
+            <Drawer
+                ref={(ref) => {
+                this.drawer = ref;
+            }}
+                content={< SideBar />}
+                onClose={() => this.CloseDrawer()}
+            >
+                <Container>
+                    <Header>
+                        <Left>
+                            <Button transparent onPress={() => this.OpenDrawer()}>
+                                <Icon name="menu" />
+                            </Button>
+                        </Left>
+                        <Body>
+                            <Title>Header</Title>
+                        </Body>
+                        <Right />
+                    </Header>
+                    <ContentComponent />
+                    <FooterComponent />
+                </Container>
+            </Drawer>
+        );
+    }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
