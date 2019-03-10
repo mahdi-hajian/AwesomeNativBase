@@ -1,10 +1,9 @@
 /* eslint-disable no-useless-constructor */
 import React, { Component } from 'react';
-import { Image } from 'react-native';
-import { StyleSheet } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import { Container, Content, List, ListItem, Left, Body, Right, Button, Text, Icon } from 'native-base';
 
-export default class SideBar extends Component {
+class SideBar extends Component {
     render() {
         return (
             <Container style={styles.SideBarStyle}>
@@ -26,24 +25,23 @@ export default class SideBar extends Component {
 
                         <ListItem icon>
                             <Left>
-                                <Icon name="alert" style={{color:'green'}}></Icon>
+                                <Icon name="alert" style={{ color: 'green' }} />
                             </Left>
                             <Body>
                                 <Text>Badge</Text>
                             </Body>
-                            <Right>
-                            </Right>
+                            <Right />
                         </ListItem>
 
                         <ListItem icon>
                             <Left>
-                                <Icon type="MaterialIcons" name="3d-rotation" style={{color:'blue'}}></Icon>
+                                <Icon type="MaterialIcons" name="3d-rotation" style={{ color: 'blue' }} />
                             </Left>
                             <Body>
                                 <Text>botton</Text>
                             </Body>
                             <Right>
-                                <Button style={{ height: 30, width: 100, backgroundColor:'red' }}>
+                                <Button style={{ height: 30, width: 100, backgroundColor: 'red' }}>
                                     <Text>9 types</Text>
                                 </Button>
                             </Right>
@@ -61,3 +59,5 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff'
     }
 });
+
+export { SideBar };

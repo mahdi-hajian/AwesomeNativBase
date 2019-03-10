@@ -8,49 +8,15 @@
  */
 
 import React, { Component } from 'react';
-import { Container, Drawer, Left, Header, Button, Icon, Body, Title, Right } from 'native-base';
-import SideBar from './src/components/SideBar';
-import { FooterComponent } from './src/components/footer';
-import { ContentComponent } from './src/components/Content';
+import { View } from 'react-native';
+import { RootNavigation } from './src/routs';
 
 export default class App extends Component {
-    CloseDrawer() {
-        this
-            .drawer
-            ._root
-            .close();
-    }
-    OpenDrawer() {
-      this
-          .drawer
-          ._root
-          .open();
-    }
-    render() {
-        return (
-            <Drawer
-                ref={(ref) => {
-                this.drawer = ref;
-            }}
-                content={< SideBar />}
-                onClose={() => this.CloseDrawer()}
-            >
-                <Container>
-                    <Header>
-                        <Left>
-                            <Button transparent onPress={() => this.OpenDrawer()}>
-                                <Icon name="menu" />
-                            </Button>
-                        </Left>
-                        <Body>
-                            <Title>Header</Title>
-                        </Body>
-                        <Right />
-                    </Header>
-                    <ContentComponent />
-                    <FooterComponent />
-                </Container>
-            </Drawer>
-        );
-    }
+   render() {
+       return (
+        <View style={{ flex: 1 }}>
+          <RootNavigation />
+        </View>
+       );
+   }
 }
